@@ -39,7 +39,7 @@ public class FiltroTokenAcesso extends OncePerRequestFilter {
                 String email = tokenService.verificarToken(token);
 
                 if (email != null && !email.isBlank()) {
-                    Optional<Usuario> usuarioOptional = usuarioRepository.findByEmailIgnoreCase(email);
+                    Optional<Usuario> usuarioOptional = usuarioRepository.findByEmailIgnoreCaseAndVerificadoTrue(email);
 
                     if (usuarioOptional.isPresent()) {
                         Usuario usuario = usuarioOptional.get();

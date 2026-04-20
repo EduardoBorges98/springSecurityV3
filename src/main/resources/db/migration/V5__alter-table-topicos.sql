@@ -1,0 +1,4 @@
+ALTER TABLE topicos
+DROP COLUMN autor,
+ADD COLUMN autor_id BIGINT NOT NULL DEFAULT 2, -- Mudou para 2
+ADD CONSTRAINT fk_autor_topico FOREIGN KEY (autor_id) REFERENCES usuarios(id) ON DELETE CASCADE;
